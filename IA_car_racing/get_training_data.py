@@ -11,7 +11,7 @@ if __name__ == "__main__":
 
     def key_press(k, mod):
         global restart, exit_env, pause
-        if k == 0xFF0D: # Enter
+        if k == 0xFF0D:  # Enter
             restart = True
         if k == 0xFF1B:  # escape
             exit_env = True
@@ -36,10 +36,10 @@ if __name__ == "__main__":
         if k == key.DOWN:
             a[2] = 0
 
-    def save_data(data, path_to_save='data'):
+    def save_data(data, path_to_save="data"):
         path = os.path.join(os.path.dirname(os.path.abspath(__file__)), path_to_save)
         file_name = "data_{}.pkl".format(time.strftime("%d%m%Y_%H%M", time.localtime()))
-        with open(os.path.join(path,file_name), "wb" ) as f:
+        with open(os.path.join(path, file_name), "wb") as f:
             pickle.dump(data, f)
 
     env = car_racing.CarRacing()
@@ -51,7 +51,7 @@ if __name__ == "__main__":
         from gym.wrappers.monitor import Monitor
 
         env = Monitor(env, "/tmp/video-test", force=True)
-    
+
     data = []
 
     prev_s = env.reset()
@@ -74,11 +74,11 @@ if __name__ == "__main__":
 
         if done or restart or isopen == False:
             prev_s = env.reset()
-        
+
         while pause:
             env.render()
             time.sleep(0.1)
-        
+
         if exit_env:
             break
 
