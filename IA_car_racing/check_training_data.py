@@ -3,34 +3,13 @@ import pickle
 import textwrap
 import numpy as np
 import argparse
-
-available_actions = {
-    "left": [-1, 0, 0],
-    "left + break": [-1, 0, 1],
-    "aceleration + left + break": [-1, 1, 1],
-    "aceleration + left": [-1, 1, 0],
-    "aceleration + right + break": [1, 1, 1],
-    "aceleration + right": [1, 1, 0],
-    "right + break": [1, 0, 1],
-    "right": [1, 0, 0],
-    "aceleration + break": [0, 1, 1],
-    "acceleration": [0, 1, 0],
-    "break": [0, 0, 1],
-    "no action": [0, 0, 0],
-}
+from util import available_actions, read_data
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--file", help="File path with data to check")
+parser.add_argument(
+    "--file", default="data\data.pkl", help="File path with data to check"
+)
 args = parser.parse_args()
-
-
-def read_data(filename):
-    if not os.path.exists(filename):
-        raise FileNotFoundError("{} doesn't exist".format(filename))
-
-    with open(filename, "rb") as f:
-        data = pickle.load(f)
-    return data
 
 
 if __name__ == "__main__":

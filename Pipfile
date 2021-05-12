@@ -7,6 +7,8 @@ name = "pypi"
 gym = "*"
 box2d = "*"
 numpy = "*"
+pillow = "*"
+tensorboard = "*"
 
 [dev-packages]
 

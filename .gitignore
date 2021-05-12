@@ -1,1 +1,5 @@
 ref/*
+IA_car_racing/data/*
+IA_car_racing/models/*
+IA_car_racing/runs/*
+.vscode
